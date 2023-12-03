@@ -1,1 +1,5 @@
 Part 1: 53334
+
+Part 2: 
+  - Attempt 1: 50987 (wrong, too low) (cause was faulty regex not matching "nine")
+  - Attempt 2: 52834
