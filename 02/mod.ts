@@ -58,3 +58,44 @@ let main = (l: ReadonlyArray<string>, limits: typeof colorLimits) => {
 let part1 = main(lines, colorLimits)
 
 console.table({ part1 })
+
+{
+  // Part 2
+
+  let main = (l: ReadonlyArray<string>) => {
+    let sum = 0
+    for (let line of l) {
+      let gameResult = getGameResults(line)
+      if (!gameResult) continue
+      let results = pairs(getSetFromResults(gameResult).flat()).map((pair) => [
+        toInt(pair[0]),
+        pair[1]
+      ])
+      let red = 0,
+        green = 0,
+        blue = 0
+      for (let [val, color] of results) {
+        switch (color) {
+          case "red":
+            if (val > red) red = val
+            break
+          case "green":
+            if (val > green) green = val
+            break
+          case "blue":
+            if (val > blue) blue = val
+            break
+        }
+      }
+
+      sum += red * green * blue
+    }
+
+    return sum
+  }
+
+  // Get the max count of blocks for each color in each game
+  let part2 = main(lines)
+
+  console.table({ part2 })
+}
