@@ -2,7 +2,7 @@ import { test, expect } from "vitest"
 
 import {
   getCards,
-  getPointForMatches,
+  getPointsForMatches,
   matchWinningNumbers,
   removeCard,
   splitOnBar
@@ -34,7 +34,7 @@ test("matchWinningNumbers", () => {
 })
 test("getPointForMatches", () => {
   expect(
-    getPointForMatches(
+    getPointsForMatches(
       matchWinningNumbers({
         own: [83, 86, 6, 31, 17, 9, 48, 53],
         winning: [41, 48, 83, 86, 17]
